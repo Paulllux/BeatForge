@@ -1,3 +1,7 @@
+This Repo is just here for the releases, download them here https://github.com/Paulllux/BeatForge/releases 
+mac : pkg
+windows : vst3
+
 BeatForge Drum Machine Plugin: Features
 BeatForge is a JUCE-based drum machine plugin available as a PKG for macOS and VST3 for Windows, designed for music producers to create, sequence, and shape drum patterns with precision and creativity. Below is a concise overview of its key features and what you can do with them.
 1. Multi-Track Sequencing
