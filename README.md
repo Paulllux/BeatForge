@@ -114,4 +114,4 @@ BeatForge’s tabbed interface (Mix, Envelope, Pitch & Dist, EQ, LFOs) offers de
 ## Notes
 
 - **Platform Support**: Available as PKG for macOS and VST3 for Windows.
-- **Releases**: Download the latest version from the [GitHub repository](https://github.com/Paulllux/BeatForge/releases).
+- **Releases**: Download the latest version from the [releases](https://github.com/Paulllux/BeatForge/releases).
