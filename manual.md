@@ -1,192 +1,101 @@
-BeatForge User Manual
-Welcome to BeatForge, a straightforward drum machine plugin for creating beats. This manual is designed to be easy to understand, even for those new to music production. Below are the main features and instructions for using them.
+BeatForge Drum Machine Plugin: Features
+BeatForge is a JUCE-based drum machine plugin available as a PKG for macOS and VST3 for Windows, designed for music producers to sequence and manipulate user-loaded audio samples with advanced control. Below is a concise overview of its key features and what you can do with them, based on the provided codebase.
+1. Multi-Track Sequencing
 
-1. Getting Started
+Up to 64 Tracks: Manage multiple tracks, each hosting a user-loaded audio sample (e.g., kick, snare, hi-hat).
+16-Step Sequencer: Program rhythms per bar with toggleable step buttons, offering visual feedback during playback.
+Bar Control: Set total bars, navigate between them, and copy/paste patterns for efficient arrangement.
 
-Open BeatForge: Load it in your DAW (e.g., Ableton, Logic, or FL Studio).
-Trial Mode: If a trial screen appears, click Start Trial to use it for 14 days. To unlock permanently, enter your email and activation code (obtained by clicking Purchase).
-Main Screen: After activation, you’ll see the track area for creating beats.
-Playback: BeatForge automatically starts playing when your DAW’s transport (play button) is activated, syncing with the DAW’s timeline and tempo.
+What You Can Do: Create complex, multi-layered drum patterns and manage extended sequences across bars.
+2. Sample Management
 
+Load Samples: Import .wav, .mp3, or .aiff files via dropdown or drag-and-drop into track-specific sample slots.
+Random Sample Mode: Randomly select samples from the same folder as the loaded sample for varied playback.
+Clear Samples: Reset a track’s sample to clear settings and buffer.
 
-2. Tracks and Drum Sounds
-BeatForge supports up to 64 tracks, each with a drum sound (e.g., kick, snare, hi-hat).
-Adding a Track
+What You Can Do: Build custom sample-based drum setups, add randomization, and manage sample libraries.
+3. Sound Design Controls
+BeatForge’s tabbed interface (Mix, Envelope, Pitch & Dist, EQ, LFOs) provides per-track sound shaping, with settings tied to edit groups.
+Mix Tab
 
-Click the Add Track button at the top left.
-A new track appears in the track list.
+Volume (-112 to +12 dB): Adjust track gain, modulatable by LFO.
+Pan (-1 to +1): Control stereo placement, LFO-modulatable.
+Swing (50% to 75%): Add groove to rhythms.
+Phase Invert: Flip phase for corrective or creative effects.
 
-Naming a Track
+Envelope Tab (ADSR)
 
-Double-click the track’s name (e.g., "Track 1") to rename it (e.g., "Kick" or "Snare").
-Right-Click the Track Name: This opens a menu with options:
-Load Sample: Select a new drum sound.
-Select Output: Choose where the sound is routed (e.g., Main 1-2 or Aux channels). Each track can have its own output, allowing separate processing in your DAW (e.g., applying different effects to kick and snare).
-Set MIDI Note: Assign the track to a MIDI note (see below).
-Mute Group: Configure tracks to mute each other (e.g., open and closed hi-hats).
-Delete Track: Remove the track.
-Clear Hit Chances: Reset probability settings (see below).
+Attack (0 to 20 ms), Decay (0 to 1000 ms), Sustain (0 to 1), Release (1 to 2000 ms): Shape sample dynamics, all LFO-modulatable.
 
+Pitch & Distortion Tab
 
+Pitch Shift (-12 to +12 semitones): Transpose samples with precomputed buffers for efficiency.
+Distortion (0 to 30 dB): Apply Soft, Hard, Foldback, or Hardcore distortion via right-click menu.
+FX Send (-112 to +12 dB): Route to global effects, LFO-modulatable.
+Reverse Playback: Reverse samples with adjustable trim (0 to 16 steps).
+Micro-Timing (-50 to +50 ms): Fine-tune trigger timing for humanized rhythms.
+Bit Depth (2 to 16 bits): Apply lo-fi bitcrushing effects.
 
-Loading Samples
+EQ Tab
 
-Right-click the track name and select Load Sample.
-OR drag and drop a .wav, .mp3, or .aiff file onto a track.
-Choose a sound from your computer (e.g., a kick drum sample).
-To switch samples in the same folder, right-click the track name, go to Samples, and select another file.
+High/Low-Pass Filters (20 Hz to 20 kHz): Enable and adjust cutoffs, LFO-modulatable.
 
+LFOs Tab
 
-3. Making Beats
-Each track has 16 steps to create a beat pattern for one bar.
-Turning Steps On/Off
+Three LFOs per Track: Configure waveform (Sine, Square, Sawtooth, Triangle, White Noise), frequency (0.1 to 20 Hz or per-beat, synced to DAW tempo), depth (0 to 100%), and targets (volume, pan, pitch, distortion, FX send, ADSR, filters).
 
-Click a step box to turn it on (green) or off (grey).
-Green steps play the drum sound during playback.
+What You Can Do: Shape sample playback with precise dynamics, distortion, and LFO-driven modulation for evolving sounds.
+4. Edit Groups
 
-Setting Hit Chances
+32 Edit Groups: Assign steps to groups (1 to 32) for unique settings (volume, pitch, distortion, etc.), color-coded for clarity.
+Copy/Paste Settings: Transfer settings between groups for workflow efficiency.
 
-Right-click a step box to set a Hit Chance (5% to 100%).
-This adds randomness, making the step play only sometimes (e.g., a 50% chance means it plays half the time).
-Blue steps indicate a hit chance below 100%.
+What You Can Do: Apply varied sound parameters to different steps within a track, like unique pitch or distortion per step.
+5. MIDI Integration
 
-Copying and Pasting
+MIDI Triggers: Assign MIDI notes (0 to 127 or None) to trigger tracks via MIDI keyboard or DAW.
+MIDI Output: Send note-on/off messages to external devices (channels 1 to 16), with velocity based on track volume.
 
-Select a track in the Track Choice dropdown.
-Click Copy to save the current bar’s pattern.
-Click Paste to apply it to another bar.
-Check Current Track Only to copy/paste one track, or uncheck to copy all tracks.
+What You Can Do: Perform live, sequence tracks via MIDI, or control external devices.
+6. Effects and Routing
 
-Changing Bars
+Reverb: Apply convolution reverb with loadable .wav or .aiff impulse responses and adjustable return level.
+External Output: Route tracks to Main (1-2) or Aux channels for DAW processing.
+FX Bus: Control per-track send levels to the effects bus, LFO-modulatable.
 
-Use Total Bars Up/Down (+/-) to set the number of bars in your song.
-Use Current Bar Up/Down to switch between bars.
-The Total Bars and Current Bar labels display the song’s length and the bar being edited.
+What You Can Do: Add spatial depth with reverb, route tracks for external processing, and modulate effects dynamically.
+7. Song Management
 
+Save/Load Songs: Save setups as .drsong files, including tracks, samples, and settings, with seamless switching during playback.
 
-4. Setting MIDI Notes
+What You Can Do: Preserve and recall projects or switch songs live for performances.
+8. Creative Tools
 
-Right-click the track name and select Set MIDI Note.
-Choose a MIDI note (e.g., C1, D#2) or "None".
-This allows triggering the track via a MIDI keyboard or DAW MIDI track.
-Useful for live performance or recording beats.
+Hit Chances (5% to 100%): Set probabilistic triggering for randomized, organic patterns.
+Flam Counts (0 to 16): Create drum rolls with adjustable hit counts.
+Mute Groups (1 to 8): Configure tracks to mute each other (e.g., for hi-hat patterns).
+Solo/Mute: Isolate or silence tracks for mixing.
 
+What You Can Do: Add randomness, craft realistic rolls, and manage track interactions for dynamic arrangements.
+9. Workflow Features
 
-5. Saving and Loading Songs
-Saving a Song
+Resizable UI: Adjust window size (800x400 to 1920x1080).
+Tabbed Interface: Navigate Mix, Envelope, Pitch & Dist, EQ, and LFOs tabs.
+Visual Feedback: Step buttons and track labels flash during playback.
+Context Menus: Right-click track labels or steps for quick settings access (e.g., MIDI, edit groups).
+DAW Sync: Syncs with DAW tempo and transport.
 
-Click the Song button and select Save (for existing files) or Save As (to choose a new file).
-Save as a .drsong file on your computer.
+What You Can Do: Work efficiently with an intuitive, visually responsive interface.
+Tips
 
-Loading a Song
+Use edit groups to vary step sounds within a track.
+Experiment with LFO modulation for dynamic effects.
+Enable random sample mode for natural variation.
+Adjust micro-timing for humanized or precise rhythms.
+Route tracks to Aux channels for DAW processing.
+Save songs regularly as .drsong files.
 
-Click the Song button and select Load Song.
-Choose a .drsong file from your computer.
-The song loads with all tracks, samples, and settings.
+Notes
 
-Seamless Song Switching
-
-Use the Song Choice dropdown to select another song in the same folder.
-BeatForge switches songs seamlessly at the next bar, even if the new song has different samples, bars, or settings.
-No clicks or pops, making it ideal for live performances.
-
-
-6. Drumkits
-A drumkit is a set of tracks with their samples and settings (excluding beat patterns).
-Saving a Drumkit
-
-Click the Drumkit button and select Save or Save As.
-Save as a .drkit file.
-
-Loading a Drumkit
-
-Click the Drumkit button and select Load.
-OR choose a drumkit from the Default Drumkit dropdown.
-This loads new samples and settings for your tracks.
-
-
-7. Sound Shaping
-Each track has controls to adjust its sound.
-ADSR (Envelope)
-
-Attack: How quickly the sound starts (0–20 ms).
-Decay: How long it fades (0–1000 ms).
-Sustain: How loud it remains (0–100%).
-Release: How long it takes to stop (0–2000 ms).
-Adjust the knobs to shape the sound (e.g., short attack for punchy kicks).
-
-Distortion
-
-Adjust the Distortion knob (1–10) to add grit or crunch.
-Higher values increase the effect’s intensity.
-
-EQ (Filters)
-
-High Pass: Enable and set the cutoff (20 Hz–20 kHz) to remove low frequencies.
-Low Pass: Enable and set the cutoff to remove high frequencies.
-Useful for enhancing kicks or refining hi-hats.
-
-Pitch
-
-Adjust the Pitch knob (-12 to +12 semitones) to tune the sound.
-Double-click to reset to 0.
-
-Volume and Pan
-
-Volume: Set the track’s loudness (0–100%).
-Pan: Position the sound left or right (-100 to +100).
-Double-click pan to center it.
-
-Solo and Mute
-
-Click S to solo a track (only that track plays).
-Click M to mute a track (it won’t play).
-Solo overrides mute.
-
-
-8. Reverb (FX)
-Add reverb to give drums a sense of space.
-Loading a Reverb IR
-
-Set the FX Mode dropdown to Internal Reverb.
-Click Load IR and select a .wav or .aiff impulse response file.
-The file name appears in the IR File Label.
-
-Reverb Settings
-
-Adjust the Reverb knob on each track to send sound to the reverb.
-Use the Reverb Return Level knob to control reverb volume.
-
-External FX
-
-Set FX Mode to External Output to route reverb to a separate channel (select with FX Bus Output dropdown).
-Useful for applying DAW effects.
-
-
-9. Mute Groups
-
-Right-click the track name and select Mute Group (None or Group 1–8).
-Tracks in the same group mute each other when triggered (e.g., closed hi-hat stops open hi-hat).
-Ideal for realistic hi-hat patterns.
-
-
-10. Additional Features
-
-Sample Rate Display: Shows the DAW’s sample rate (e.g., 44100 Hz).
-Version Label: Displays the BeatForge version.
-Trial Status: Indicates trial mode, activated, or expired status.
-Resizable Window: Drag the corner to resize the plugin (800x400 to 1920x1080).
-Default Song: Loads a demo song if none is loaded (located at /Library/Application Support/BeatForge/songs/demo.drsong).
-
-
-11. Tips
-
-Save frequently to avoid losing work.
-Use Solo to focus on one track during adjustments.
-Experiment with Hit Chances for creative, random beats.
-Try different IR files for unique reverb effects.
-Assign MIDI Notes to play BeatForge like a drum machine in your DAW.
-Set track outputs to different channels for advanced mixing in your DAW.
-
-
-That’s it! BeatForge is designed to make beat creation simple and effective. Enjoy producing!
+Platform Support: Available as PKG for macOS and VST3 for Windows.
+Releases: Download the latest version from the GitHub repository.
