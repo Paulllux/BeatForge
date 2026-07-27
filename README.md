@@ -4,6 +4,15 @@
 
 BeatForge is a JUCE-based drum machine plugin available as a PKG for macOS and VST3 for Windows, designed for music producers to create, sequence, and shape drum patterns with precision and creativity. Below is a concise overview of its key features and what you can do with them.
 
+## New in 4.3.0
+
+- **Patterns & Song Mode**: 16 pattern slots per song with seamless, loop-quantized switching. Chain slots into a full arrangement, hit SONG, and export the whole chained song as MIDI.
+- **Live Tap Recording + Pads**: Arm REC and drum your beat in — on a MIDI controller, the on-screen keys, or the new Pads dock (one MPC-style pad per track). Hits snap to the nearest step and overdub as the pattern loops; hard hits record as accents.
+- **REX play zone**: Select a play region in the waveform, fully independent of the slicer brackets.
+- Decluttered header and cleaner layout throughout.
+
+Full details and manual: [beatforge.nl](https://beatforge.nl)
+
 ## 1. Multi-Track Sequencing
 
 - **Up to 64 Tracks**: Manage multiple drum tracks (e.g., kick, snare, hi-hat) for complex arrangements.
@@ -50,7 +59,7 @@ BeatForge’s tabbed interface (Mix, Envelope, Pitch & Dist, EQ, LFOs) offers de
 
 ### LFOs Tab
 
-- **Three LFOs per Track**: Configure waveform (Sine, Square, Sawtooth, Triangle, White Noise), frequency (0.1 to 20 Hz or per-beat), depth (0 to 100%), and targets (volume, pan, pitch, distortion, FX send, ADSR, filters).
+- **Ten LFOs with Shape Editor**: Draw custom LFO curves with tension control, or use classic waveforms (Sine, Square, Sawtooth, Triangle, White Noise). Sync to host, free-run, or trigger per step, with targets across volume, pan, pitch, distortion, FX send, ADSR, and filters.
 
 **What You Can Do**: Sculpt drum sounds with dynamics, distortion, and modulation for unique, evolving textures.
 

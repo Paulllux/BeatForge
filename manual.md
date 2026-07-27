@@ -9,17 +9,18 @@ The Idea was to make something that looks like your basic step sequencer, untill
 ### Key Features
 
 - Up to 64 tracks
-- 16-step sequencer per bar
-- Multiple bars per song
-- Sample loading and management
-- Solo and mute functionality
-- Volume, pan, swing, and phase invert controls
-- ADSR envelope
-- Pitch shift, distortion, and FX send
-- High-pass and low-pass filters
-- Three LFOs per track
-- MIDI input and output support, including Synth Roll Mode
-- Song saving and loading
+- 16-step sequencer per bar, multiple bars per song
+- **16 pattern slots with chaining and SONG mode** — build full arrangements *(new in 4.3)*
+- **Live tap recording with MPC-style pads** — play your beats in, snapped to the grid *(new in 4.3)*
+- 30+ circuit-modeled drum synth engines (808/909 kits and more)
+- Native REX (.rx2) playback plus a built-in slicer for WAV/AIFF/FLAC/MP3/OGG
+- Per-step parameter locks, hit probability, ratchets/flams, accents
+- 32 edit groups per track — 32 sound variations assignable per step
+- Sample loading and management, random sample mode
+- ADSR envelopes, pitch shift, distortion, tube saturation, lo-fi, Sculptor EQ
+- 10 LFOs with a custom shape editor
+- MIDI input and output support, MIDI Learn, Synth Roll Mode
+- 5 UI themes, song saving and loading
 
 ## Installation
 
@@ -103,12 +104,31 @@ Right-clicking a step button provides options:
 
 ## Bar and Song Management
 
-- **Total Bars:** Use the "+" and "−" buttons next to "Total Bars" to set the song length (minimum 1 bar).
-- **Current Bar:** Navigate between bars using the "+" and "−" buttons next to "Bar X".
-- **Copy/Paste Bar:** 
-  - Click "Copy" to save the current bar's settings.
-  - Click "Paste" to apply the copied settings to another bar.
-  - Right-click a track for track-specific copy/paste options.
+- **Total Bars:** Use the "+" and "−" buttons in the arrange strip (or type a number directly) to set the pattern length. You can also drag the end handle of the bar ruler to add or remove bars.
+- **Bar Navigation:** Click a bar number in the ruler above the step grid to jump to it.
+- **Bar Repeats:** The "×N" stepper sets how many times the current bar plays before moving on.
+- **Copy/Paste Bar:** Right-click a bar in the ruler for Copy, Paste, and repeat options.
+
+## Patterns & Song Mode *(new in 4.3)*
+
+Every song holds **16 pattern slots**. A pattern stores the full sequence — steps, ratchets, probability, accents, group assignments, parameter locks and bar layout — but never your sounds, so switching patterns can't cut ringing tails or change the kit.
+
+- **Open the panel** with the **Patterns** button on the dock bar (bottom edge).
+- **Switch patterns:** Click a slot. While the DAW is playing, the switch waits for the end of the current pattern loop and lands seamlessly — no gaps, no cut-off tails. Stopped, it switches instantly.
+- **Save / clear:** Right-click a slot to save the current pattern into it or clear it.
+- **Build a chain:** Drag slots down into the chain lane (or Shift+Click a slot to append). Drag chips to reorder; Option/Alt+Click a chip removes it.
+- **SONG mode:** Turn on **SONG** and the chain plays through in order, advancing at each pattern's end, and loops.
+- **Export the arrangement:** With SONG on, **Drag Sequence MIDI** renders the entire chained song into one MIDI clip that matches playback exactly.
+
+## Live Recording & Pads *(new in 4.3)*
+
+Play your beats in live instead of clicking them in:
+
+- **Arm REC** (next to SEQ ON above the step grid) and start your DAW's transport.
+- **Play:** Drum on your MIDI controller, the on-screen keyboard, or open the **Pads** dock — one big pad per track, tap with the mouse. Pads light up with each track's output.
+- **Grid snap:** Every hit is written to the *nearest* step — tap slightly early and it still lands on the beat you meant. The pattern overdubs as it loops.
+- **Accents:** Hard MIDI hits (velocity 110+) record as accented steps. On the pads, Shift+Click plays and records an accent-strength hit.
+- **Audition anytime:** The pads always play their track, armed or not.
 
 ## Effects and Processing
 
@@ -141,7 +161,7 @@ Effects and processing options are organized into tabs per track:
   very basic untill now, just to tame excessive highs or lows. I recommend using separate outputs if you need to fine tune the sounds more.
 
 - **LFO Tab:**
-  - Three LFOs per track with:
+  - 10 LFOs with a custom shape editor, featuring:
     - **Enable:** Toggle LFO on/off.
     - **Frequency:** Set rate (0.1 to 20 Hz or 0.1 to 10 per beat; right-click to switch mode).
     - **Amplitude:** Adjust depth (0% to 100%).
@@ -163,8 +183,8 @@ Global MIDI and FX settings:
 
 ## Song Saving and Loading
 
-- **Save Song:** Click the "Song" button and select "Save" (overwrites current file) or "Save As" (choose new file).
-- **Load Song:** Select "Load Song" to open a `.drsong` file, or use the song dropdown to switch between files in the same directory.
+- **Save Song:** Click the **File** button (beside the song name, top-left of the sequencer) and select "Save" (overwrites current file) or "Save As" (choose new file). Your pattern bank and chain are saved with the song.
+- **Load Song:** Select "Load Song" from the File menu, or use the song dropdown to switch between files in the same directory.
 
 ## Tips and Tricks
 
